@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body {
+    background-color:black ; 
+   
+}
+a {
+    color: black !important;
+}
+#formCreate {
+ 	 margin : 90px auto;
+	width: 400px;
+	height: auto;
+	border-radius: 21px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: 9%; /* Logo ajustado */
+    height: auto;
+}
+
+.card {
+    width: 100%;
+    background: #E50914;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.titulo {
+    color: white;
+    font-size: 24px; /* Título más grande */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
+.form-group h:outputLabel {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+

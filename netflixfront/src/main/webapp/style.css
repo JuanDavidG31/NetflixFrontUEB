@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+	background-color: black;
+}
+
+a {
+    color: black !important;
+}
+
+
+#formPassword {
+	 margin : 90px auto;
+	width: 400px;
+	height: auto;
+	border-radius: 21px;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+	margin: 90px auto;
+	margin: 90px auto;
+}
+
+#formLogin {
+	margin: 90px auto;
+	width: 400px;
+	height: auto;
+	border-radius: 21px;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.logo {
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	width: 9%;
+	height: auto;
+}
+
+.card {
+	width: 100%;
+	background: #E50914;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+
+.titulo {
+	color: white;
+}
+
+
+
+.espacio {
+	margin: 20px;
+}
+
+.custom-button {
+	height: 50px;
+	margin: 0px;
+	width: 120px;
+	justify-content: center;
+	cursor: pointer;
+	align-items: center;
+	font-family: Consolas, Courier New, monospace;
+	border: solid #404c5d 1px;
+	font-size: 16px;
+	color: rgb(161, 161, 161);
+	transition: 500ms;
+	border-radius: 5px;
+	background: linear-gradient(145deg, #2e2d2d, #212121);
+	box-shadow: -1px -5px 15px #E50914, 5px 5px 15px #41465b, inset 5px 5px
+		10px #212121, inset -5px -5px 10px #212121;
+	width: 100% !important;
+	height: 43px;
+	box-sizing: border-box;
+}
+
+.custom-button:hover {
+	outline: none;
+	box-shadow: 1px 1px 13px #E50914, -1px -1px 13px #E50914;
+	color: #d6d6d6;
+	transition: 500ms;
+}
+
+.custom-button:active {
+	outline: none;
+	box-shadow: 1px 1px 13px #E50914, -1px -1px 33px #E50914;
+	color: #d6d6d6;
+	transition: 100ms;
+}
