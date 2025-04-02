@@ -15,6 +15,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import co.edu.unbosque.model.ExcelDTO;
+import co.edu.unbosque.model.MovieDTO;
 import co.edu.unbosque.model.UserDTO;
 
 public class ExternalHTTPRequestHandler {
@@ -132,6 +133,25 @@ public class ExternalHTTPRequestHandler {
 		ExcelDTO[] excelArray = gson.fromJson(json, ExcelDTO[].class);
 
 		return new ArrayList<>(Arrays.asList(excelArray));
+	}
+
+	public static ArrayList<MovieDTO> doGetAllMovies(String url) {
+		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+
+		HttpResponse<String> answer = null;
+		try {
+			answer = HTTP_CLIENT.send(solicitud, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+
+		String json = answer.body();
+
+		Gson gson = new GsonBuilder().create();
+		MovieDTO[] movieArray = gson.fromJson(json, MovieDTO[].class);
+
+		return new ArrayList<>(Arrays.asList(movieArray));
 	}
 
 }

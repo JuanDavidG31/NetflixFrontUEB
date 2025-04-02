@@ -80,22 +80,19 @@
 	<main> <section class="banner">
 	<h1>Bienvenido a Netflix</h1>
 	<p>Disfruta de las mejores películas y series.</p>
-	</section> <main> 
-	
-	
-	<h:form>
+	</section> <main> <h:form>
 
 		<section class="movies">
 
-		<h2>Películas Populares</h2>
-		<p:carousel value="#{PeliculasBean.peliculas}" var="pelicula"
+		<h2>Películas Terror</h2>
+		<p:carousel value="#{MovieBean.peliculasTerror}" var="peliculaT"
 			numVisible="6" responsive="true" styleClass="movie-carousel">
 
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
 
-				<h:panelGroup rendered="#{not empty pelicula.videoUrl}">
+				<h:panelGroup rendered="#{not empty peliculaT.videoUrl}">
 
-					<iframe width="200" height="300" src="#{pelicula.videoUrl}"
+					<iframe width="200" height="300" src="#{peliculaT.videoUrl}"
 						title="YouTube video player" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
@@ -103,38 +100,46 @@
 
 				</h:panelGroup>
 
-				<h:panelGroup rendered="#{empty pelicula.videoUrl}">
 
-					<p:graphicImage value="img/#{pelicula.imagenUrl}"
-						alt="#{pelicula.nombre}" />
 
-				</h:panelGroup>
-
-				<h:outputText value="#{pelicula.nombre}" />
+				<h:outputText value="#{peliculaT.nombre}" />
 
 			</p:panelGrid>
 
-		</p:carousel>
-		 </section>
+		</p:carousel> </section>
 
 	</h:form> <h:form>
 		<section class="movies">
-		<h2>Películas Populares</h2>
-		<p:carousel value="#{PeliculasBean.peliculas}" var="pelicula"
+		<h2>Películas Animacion</h2>
+		<p:carousel value="#{MovieBean.peliculasAnimacion}" var="peliculaA"
 			numVisible="6" responsive="true" styleClass="movie-carousel">
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty pelicula.videoUrl}">
-					<iframe width="200" height="300" src="#{pelicula.videoUrl}"
+				<h:panelGroup rendered="#{not empty peliculaA.videoUrl}">
+					<iframe width="200" height="300" src="#{peliculaA.videoUrl}"
 						title="YouTube video player" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
 						allowfullscreen="true"></iframe>
 				</h:panelGroup>
-				<h:panelGroup rendered="#{empty pelicula.videoUrl}">
-					<p:graphicImage value="img/#{pelicula.imagenUrl}"
-						alt="#{pelicula.nombre}" />
+
+				<h:outputText value="#{peliculaA.nombre}" />
+			</p:panelGrid>
+		</p:carousel> </section>
+	</h:form> <h:form>
+		<section class="movies">
+		<h2>Películas Romance</h2>
+		<p:carousel value="#{MovieBean.peliculasRomance}" var="peliculaR"
+			numVisible="6" responsive="true" styleClass="movie-carousel">
+			<p:panelGrid columns="1" style="width:100%;text-align:center;">
+				<h:panelGroup rendered="#{not empty peliculaR.videoUrl}">
+					<iframe width="200" height="300" src="#{peliculaR.videoUrl}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen="true"></iframe>
 				</h:panelGroup>
-				<h:outputText value="#{pelicula.nombre}" />
+
+				<h:outputText value="#{peliculaR.nombre}" />
 			</p:panelGrid>
 		</p:carousel> </section>
 	</h:form> </main> </main>

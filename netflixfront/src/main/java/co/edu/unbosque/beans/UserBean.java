@@ -70,6 +70,13 @@ public class UserBean implements Serializable {
 			String tpassword = u.getPassword();
 
 			if ((tusuario.equals(email) || temail.equals(email)) && tpassword.equals(password)) {
+
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 				LocalDateTime now = LocalDateTime.now();
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 				String formattedDate = now.format(formatter);
@@ -78,7 +85,7 @@ public class UserBean implements Serializable {
 				System.out.println(eDao.crear(nuevoUsuario));
 
 				eDao.exportToCSV("data/Usuario.csv", nuevoUsuario);
-				eDao.openCSV("data/Usuario.csv");
+				//eDao.openCSV("data/Usuario.csv");
 
 				break;
 			}
@@ -89,13 +96,11 @@ public class UserBean implements Serializable {
 	public void recuperar() {
 
 	}
-	
-	
 
-	    public String signOut() {
-	        // Lógica para cerrar sesión
-	        return "login.xhtml?faces-redirect=true";
-	    }
+	public String signOut() {
+		// Lógica para cerrar sesión
+		return "login.xhtml?faces-redirect=true";
+	}
 
 	public String getPassword2() {
 		return password2;
