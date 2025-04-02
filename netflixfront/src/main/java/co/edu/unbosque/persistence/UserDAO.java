@@ -41,6 +41,11 @@ public class UserDAO implements CRUDOperation<UserDTO, UserDTO> {
 
 	}
 
+	public String actualizar2(UserDTO nuevoDato) {
+		return ExternalHTTPRequestHandler.doPut("http://localhost:8082/user/actualizarjson",
+				new GsonBuilder().create().toJson(nuevoDato));
+	}
+
 	@Override
 	public ArrayList<UserDTO> buscarTodo() {
 		// TODO Auto-generated method stub

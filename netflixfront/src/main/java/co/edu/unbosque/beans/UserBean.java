@@ -1,9 +1,9 @@
 package co.edu.unbosque.beans;
 
 import java.io.IOException;
+
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -14,11 +14,9 @@ import co.edu.unbosque.persistence.ExcelDAO;
 import co.edu.unbosque.persistence.UserDAO;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
-import jakarta.faces.bean.ViewScoped;
-import jakarta.faces.component.UIComponent;
+
 import jakarta.faces.context.FacesContext;
-import jakarta.faces.validator.ValidatorException;
-import jakarta.inject.Inject;
+
 import jakarta.inject.Named;
 
 @Named("UserBean")
@@ -42,12 +40,16 @@ public class UserBean implements Serializable {
 	private UserDAO uDao;
 	private ExcelDAO eDao;
 
+	ArrayList<UserDTO> Usuario;
+
 	public UserBean() {
+
 		uDao = new UserDAO();
 		eDao = new ExcelDAO();
 	}
 
 	public void crear() {
+		eDao.openCSV("data/Usuario.csv");
 
 	}
 
@@ -85,7 +87,6 @@ public class UserBean implements Serializable {
 				System.out.println(eDao.crear(nuevoUsuario));
 
 				eDao.exportToCSV("data/Usuario.csv", nuevoUsuario);
-				//eDao.openCSV("data/Usuario.csv");
 
 				break;
 			}
@@ -94,7 +95,55 @@ public class UserBean implements Serializable {
 	}
 
 	public void recuperar() {
+		Usuario = new ArrayList<>();
+		Usuario = uDao.getUserList();
+		for (UserDTO u : Usuario) {
+			String tEmail = u.getEmail();
+			String tusuario = u.getUser();
+			if (tEmail.equals(email) || tusuario.equals(email)) {
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("newPassword.xhtml");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
 
+				continue;
+			}
+
+		}
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "ID incorrecto."));
+	}
+
+	public void cambiarContrasegna() {
+		Usuario = new ArrayList<>();
+		Usuario = uDao.getUserList();
+
+		for (UserDTO u : Usuario) {
+
+			String tEmail = u.getEmail();
+			String tusuario = u.getUser();
+
+			if (tEmail.equals(email) || tusuario.equals(email)) {
+
+				if (password.equals(passwordCheck)) {
+					UserDTO usuarioNuevo = new UserDTO(null, password, null, u.getEmail());
+
+					uDao.actualizar2(usuarioNuevo);
+
+					try {
+						FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+
+				break;
+			}
+
+		}
 	}
 
 	public String signOut() {
