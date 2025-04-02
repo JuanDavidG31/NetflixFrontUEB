@@ -43,11 +43,11 @@ public class MovieBean implements Serializable {
 
 		for (MovieDTO m : peliculas) {
 			if (m.getGenero().equals(TERROR)) {
-				peliculasTerror.add(new MovieDTO(m.getVideoUrl(), m.getNombre(), m.getGenero()));
+				peliculasTerror.add(new MovieDTO(m.getUrl(), m.getNombre(), m.getGenero()));
 			} else if (m.getGenero().equals(ANIMACION)) {
-				peliculasAnimacion.add(new MovieDTO(m.getVideoUrl(), m.getNombre(), m.getGenero()));
+				peliculasAnimacion.add(new MovieDTO(m.getUrl(), m.getNombre(), m.getGenero()));
 			} else if (m.getGenero().equals(ROMANCE)) {
-				peliculasRomance.add(new MovieDTO(m.getVideoUrl(), m.getNombre(), m.getGenero()));
+				peliculasRomance.add(new MovieDTO(m.getUrl(), m.getNombre(), m.getGenero()));
 			}
 		}
 

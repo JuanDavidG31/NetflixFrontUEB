@@ -5,18 +5,35 @@ import java.io.Serializable;
 public class MovieDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	private Integer id;
+	private String url;
 	private String nombre;
 	private String genero;
-	private String videoUrl;
 
 	public MovieDTO() {
 	}
 
-	public MovieDTO(String nombre, String genero, String videoUrl) {
+	public MovieDTO(String url, String nombre, String genero) {
+		super();
+		this.url = url;
 		this.nombre = nombre;
 		this.genero = genero;
-		this.videoUrl = videoUrl;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getNombre() {
@@ -35,17 +52,13 @@ public class MovieDTO implements Serializable {
 		this.genero = genero;
 	}
 
-	public String getVideoUrl() {
-		return videoUrl;
-	}
-
-	public void setVideoUrl(String videoUrl) {
-		this.videoUrl = videoUrl;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "PeliculaDTO{" + "nombre='" + nombre + '\'' + ", genero='" + genero + '\'' + ", videoUrl='" + videoUrl
-				+ '\'' + '}';
+		return "MovieDTO [id=" + id + ", url=" + url + ", nombre=" + nombre + ", genero=" + genero + "]";
 	}
+
 }

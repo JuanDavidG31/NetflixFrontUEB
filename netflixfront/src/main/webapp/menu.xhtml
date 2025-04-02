@@ -90,9 +90,9 @@
 
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
 
-				<h:panelGroup rendered="#{not empty peliculaT.videoUrl}">
+				<h:panelGroup rendered="#{not empty peliculaT.url}">
 
-					<iframe width="200" height="300" src="#{peliculaT.videoUrl}"
+					<iframe width="200" height="300" src="#{peliculaT.url}"
 						title="YouTube video player" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
@@ -114,8 +114,8 @@
 		<p:carousel value="#{MovieBean.peliculasAnimacion}" var="peliculaA"
 			numVisible="6" responsive="true" styleClass="movie-carousel">
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty peliculaA.videoUrl}">
-					<iframe width="200" height="300" src="#{peliculaA.videoUrl}"
+				<h:panelGroup rendered="#{not empty peliculaA.url}">
+					<iframe width="200" height="300" src="#{peliculaA.url}"
 						title="YouTube video player" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
@@ -131,8 +131,8 @@
 		<p:carousel value="#{MovieBean.peliculasRomance}" var="peliculaR"
 			numVisible="6" responsive="true" styleClass="movie-carousel">
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty peliculaR.videoUrl}">
-					<iframe width="200" height="300" src="#{peliculaR.videoUrl}"
+				<h:panelGroup rendered="#{not empty peliculaR.url}">
+					<iframe width="200" height="300" src="#{peliculaR.url}"
 						title="YouTube video player" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
