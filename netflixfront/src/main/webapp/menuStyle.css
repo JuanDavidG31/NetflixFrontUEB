@@ -1,23 +1,27 @@
+@charset "UTF-8";
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #141414;
-    color: white;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #141414;
+	color: white;
 }
 
+
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #e50914;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #e50914;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+	font-size: 24px;
+	font-weight: bold;
 }
+
 .net {
 	position: absolute;
 	top: 0px;
@@ -27,66 +31,86 @@ header {
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+	list-style: none;
+	display: flex;
+	gap: 20px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
+
 .movie-carousel .ui-carousel-item {
-            text-align: center;
-        }
-        .movie-carousel img {
-            width: 200px;
-            height: 300px;
-            object-fit: cover;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: transparent !important;
+    border: none !important;
+    transition: transform 0.3s ease; /* Transición suave */
+}
+.movie-carousel .ui-carousel-item:hover {
+    transform: scale(1.1); /* Agranda la película al pasar el cursor */
+}
+.movie-carousel img {
+	width: 200px;
+	height: 300px;
+	object-fit: cover;
+}
 
 .banner {
-    background-image: url('https://via.placeholder.com/1200x400');
-    background-size: cover;
-    padding: 100px 20px;
-    text-align: center;
+	background-image: url('backdrop.jpg');
+	background-size: cover;
+	padding: 100px 20px;
+	text-align: center;
 }
 
 .banner h1 {
-    font-size: 48px;
+	font-size: 48px;
 }
 
 .banner p {
-    font-size: 24px;
+	font-size: 24px;
 }
 
 .movies {
-    padding: 20px;
+	padding: 20px;
 }
 
 .movies h2 {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .movie-list {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
+	display: flex;
+	gap: 20px;
+	overflow-x: auto;
 }
 
 .movie {
-    flex: 0 0 auto;
-    width: 200px;
+	flex: 0 0 auto;
+	width: 200px;
 }
 
 .movie img {
-    width: 100%;
-    border-radius: 5px;
+	width: 100%;
+	border-radius: 5px;
 }
 
+.movie-carousel {
+	width: 100%; /* O un ancho fijo */
+	height: auto;
+}
+
+.movie-carousel .ui-carousel-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #222;
+	text-align: center;
+	padding: 20px;
+	background-color: #222;
 }

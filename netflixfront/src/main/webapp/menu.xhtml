@@ -8,51 +8,61 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <script src="script.js"></script>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"></link>
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="menuStyle.css"></link>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://kit.fontawesome.com/e5507d7bda.js" />
 
-    <link rel="icon" type="image/png" href="netflix_logo_icon_170919.ico" />
-    <title>Netiflix</title>
+	<script src="script.js"></script>
+
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+		crossorigin="anonymous"></link>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="menuStyle.css"></link>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<script src="https://kit.fontawesome.com/e5507d7bda.js" />
+
+
+
+	<link rel="icon" type="image/png" href="netflix_logo_icon_170919.ico" />
+
+	<title>Netiflix</title>
+
 </h:head>
+
 <h:body>
-
-    <header>
-        <div class="logo"><img class="net animate__animated animate__bounceInLeft"
-		src="netflix.png" /></div>
-        <nav>
-          <div class="container-fluid">
-
-
+	<header>
+	<div class="logo">
+		<h:graphicImage
+			styleClass="net animate__animated animate__bounceInLeft"
+			value="netflix.png" />
+	</div>
+	<nav>
+	<div class="container-fluid">
 		<div class="dropdown">
 			<button class="btn btn-outline-light dropdown-toggle" type="button"
 				id="menuOpciones" data-bs-toggle="dropdown" aria-expanded="false">
 				Mi Cuenta</button>
 			<ul class="dropdown-menu dropdown-menu-end"
 				aria-labelledby="menuOpciones">
-			
 				<li><h:form>
-						<p:commandLink value="Peliculas" styleClass="dropdown-item "
+						<p:commandLink value="Peliculas" styleClass="dropdown-item"
 							action="menu.xhtml?faces-redirect=true" ajax="false"
 							immediate="true" />
 					</h:form></li>
 				<li><h:form>
-						<p:commandLink value="Series" styleClass="dropdown-item "
+						<p:commandLink value="Series" styleClass="dropdown-item"
 							action="menu.xhtml?faces-redirect=true" ajax="false"
 							immediate="true" />
 					</h:form></li>
-						<li><h:form>
+				<li><h:form>
 						<p:commandLink value="Cambiar Contraseña"
 							styleClass="dropdown-item"
 							action="newPassword.xhtml?faces-redirect=true" />
@@ -66,34 +76,70 @@
 			</ul>
 		</div>
 	</div>
-        </nav>
-    </header>
-    <main>
-        <section class="banner">
-            <h1>Bienvenido a MiNetflix</h1>
-            <p>Disfruta de las mejores películas y series.</p>
-        </section>
+	</nav> </header>
+	<main> <section class="banner">
+	<h1>Bienvenido a Netflix</h1>
+	<p>Disfruta de las mejores películas y series.</p>
+	</section> <main> 
+	
+	
+	<h:form>
 
-        <h:form>
-        <section class="movies">
-            <h2>Películas Populares</h2>
-            <p:carousel value="#{peliculasBean.peliculas}" var="pelicula" numVisible="5" responsive="true" styleClass="movie-carousel">
-                <p:panelGrid columns="1" style="width:100%;text-align:center;">
-                    <h:panelGroup rendered="#{not empty pelicula.videoUrl}">
-                        <iframe width="200" height="300" src="#{pelicula.videoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="true" ></iframe>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{empty pelicula.videoUrl}">
-                        <p:graphicImage value="#{pelicula.imagenUrl}" alt="#{pelicula.nombre}" />
-                    </h:panelGroup>
-                    <h:outputText value="#{pelicula.nombre}" />
-                </p:panelGrid>
-            </p:carousel>
-        </section>
-    </h:form>
-    </main>
+		<section class="movies">
 
-    <footer>
-        <p>&copy; 2023 MiNetflix. Todos los derechos reservados.</p>
-    </footer>
+		<h2>Películas Populares</h2>
+		<p:carousel value="#{PeliculasBean.peliculas}" var="pelicula"
+			numVisible="6" responsive="true" styleClass="movie-carousel">
+
+			<p:panelGrid columns="1" style="width:100%;text-align:center;">
+
+				<h:panelGroup rendered="#{not empty pelicula.videoUrl}">
+
+					<iframe width="200" height="300" src="#{pelicula.videoUrl}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen="true"></iframe>
+
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{empty pelicula.videoUrl}">
+
+					<p:graphicImage value="img/#{pelicula.imagenUrl}"
+						alt="#{pelicula.nombre}" />
+
+				</h:panelGroup>
+
+				<h:outputText value="#{pelicula.nombre}" />
+
+			</p:panelGrid>
+
+		</p:carousel>
+		 </section>
+
+	</h:form> <h:form>
+		<section class="movies">
+		<h2>Películas Populares</h2>
+		<p:carousel value="#{PeliculasBean.peliculas}" var="pelicula"
+			numVisible="6" responsive="true" styleClass="movie-carousel">
+			<p:panelGrid columns="1" style="width:100%;text-align:center;">
+				<h:panelGroup rendered="#{not empty pelicula.videoUrl}">
+					<iframe width="200" height="300" src="#{pelicula.videoUrl}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen="true"></iframe>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{empty pelicula.videoUrl}">
+					<p:graphicImage value="img/#{pelicula.imagenUrl}"
+						alt="#{pelicula.nombre}" />
+				</h:panelGroup>
+				<h:outputText value="#{pelicula.nombre}" />
+			</p:panelGrid>
+		</p:carousel> </section>
+	</h:form> </main> </main>
+	<footer>
+	<p>© 2023 MiNetflix. Todos los derechos reservados.</p>
+	</footer>
 </h:body>
 </html>

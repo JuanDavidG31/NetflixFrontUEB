@@ -90,19 +90,7 @@ public class UserBean implements Serializable {
 
 	}
 	
-	 private boolean dropdownVisible = false;
-
-	    public boolean isDropdownVisible() {
-	        return dropdownVisible;
-	    }
-
-	    public void setDropdownVisible(boolean dropdownVisible) {
-	        this.dropdownVisible = dropdownVisible;
-	    }
-
-	    public void toggleDropdown() {
-	        dropdownVisible = !dropdownVisible;
-	    }
+	
 
 	    public String signOut() {
 	        // Lógica para cerrar sesión

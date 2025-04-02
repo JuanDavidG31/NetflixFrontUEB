@@ -8,4 +8,9 @@
 		<managed-bean-class>co.edu.unbosque.beans.UserBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+<managed-bean>
+		<managed-bean-name>PeliculasBean</managed-bean-name>
+		<managed-bean-class>co.edu.unbosque.beans.PeliculaBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 </faces-config>
