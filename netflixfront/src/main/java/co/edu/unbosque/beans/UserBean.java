@@ -89,6 +89,25 @@ public class UserBean implements Serializable {
 	public void recuperar() {
 
 	}
+	
+	 private boolean dropdownVisible = false;
+
+	    public boolean isDropdownVisible() {
+	        return dropdownVisible;
+	    }
+
+	    public void setDropdownVisible(boolean dropdownVisible) {
+	        this.dropdownVisible = dropdownVisible;
+	    }
+
+	    public void toggleDropdown() {
+	        dropdownVisible = !dropdownVisible;
+	    }
+
+	    public String signOut() {
+	        // Lógica para cerrar sesión
+	        return "login.xhtml?faces-redirect=true";
+	    }
 
 	public String getPassword2() {
 		return password2;
