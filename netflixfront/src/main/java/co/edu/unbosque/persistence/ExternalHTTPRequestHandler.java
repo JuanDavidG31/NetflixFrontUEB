@@ -18,10 +18,24 @@ import co.edu.unbosque.model.ExcelDTO;
 import co.edu.unbosque.model.MovieDTO;
 import co.edu.unbosque.model.UserDTO;
 
+/**
+ * Clase que maneja las solicitudes HTTP externas. Proporciona métodos para
+ * realizar solicitudes GET, POST, PUT y DELETE, así como para parsear
+ * respuestas JSON a objetos Java.
+ */
 public class ExternalHTTPRequestHandler {
+	/**
+	 * Cliente HTTP reutilizable con configuración predeterminada.
+	 */
 	private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2)
 			.connectTimeout(Duration.ofSeconds(5)).build();
 
+	/**
+	 * Realiza una solicitud GET a la URL especificada y parsea la respuesta JSON.
+	 *
+	 * @param url La URL a la que se realizará la solicitud GET.
+	 * @return La respuesta JSON formateada como una cadena legible.
+	 */
 	public static String doGetAndParse(String url) {
 		HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(url))
 				.header("Content-type", "application/json").build();
@@ -38,6 +52,12 @@ public class ExternalHTTPRequestHandler {
 		return prettyPrintUsingGson(uglyJsonString);
 	}
 
+	/**
+	 * Formatea una cadena JSON para que sea legible.
+	 *
+	 * @param uglyJsonString La cadena JSON sin formato.
+	 * @return La cadena JSON formateada.
+	 */
 	private static String prettyPrintUsingGson(String uglyJsonString) {
 		Gson gson = new GsonBuilder().setLenient().setPrettyPrinting().create();
 		JsonElement jsonElement = JsonParser.parseString(uglyJsonString);
@@ -46,6 +66,13 @@ public class ExternalHTTPRequestHandler {
 		return prettyJsonString;
 	}
 
+	/**
+	 * Realiza una solicitud POST a la URL especificada con el JSON proporcionado.
+	 *
+	 * @param url  La URL a la que se realizará la solicitud POST.
+	 * @param json La cadena JSON que se enviará en el cuerpo de la solicitud.
+	 * @return El código de estado de la respuesta HTTP como una cadena.
+	 */
 	public static String doPost(String url, String json) {
 		HttpRequest solicitud = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json))
 				.uri(URI.create(url)).header("Content-Type", "application/json").build();
@@ -63,6 +90,13 @@ public class ExternalHTTPRequestHandler {
 		return String.valueOf(response.statusCode());
 	}
 
+	/**
+	 * Realiza una solicitud PUT a la URL especificada con el JSON proporcionado.
+	 *
+	 * @param url  La URL a la que se realizará la solicitud PUT.
+	 * @param json La cadena JSON que se enviará en el cuerpo de la solicitud.
+	 * @return El código de estado de la respuesta HTTP como una cadena.
+	 */
 	public static String doPut(String url, String json) {
 		HttpRequest solicitud = HttpRequest.newBuilder().PUT(HttpRequest.BodyPublishers.ofString(json))
 				.uri(URI.create(url)).header("Content-Type", "application/json").build();
@@ -80,6 +114,12 @@ public class ExternalHTTPRequestHandler {
 		return String.valueOf(response.statusCode());
 	}
 
+	/**
+	 * Realiza una solicitud DELETE a la URL especificada.
+	 *
+	 * @param url La URL a la que se realizará la solicitud DELETE.
+	 * @return El código de estado de la respuesta HTTP como una cadena.
+	 */
 	public static String doDelete(String url) {
 		HttpRequest solicitud = HttpRequest.newBuilder().DELETE().uri(URI.create(url))
 				.header("Content-Type", "application/json").build();
@@ -97,6 +137,13 @@ public class ExternalHTTPRequestHandler {
 		return String.valueOf(response.statusCode());
 	}
 
+	/**
+	 * Realiza una solicitud GET para obtener todos los usuarios y parsea la
+	 * respuesta JSON a una lista de UserDTO.
+	 *
+	 * @param url La URL a la que se realizará la solicitud GET.
+	 * @return Una lista de objetos UserDTO.
+	 */
 	public static ArrayList<UserDTO> doGetAllUsuarios(String url) {
 		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
 
@@ -116,6 +163,13 @@ public class ExternalHTTPRequestHandler {
 		return new ArrayList<>(Arrays.asList(userArray));
 	}
 
+	/**
+	 * Realiza una solicitud GET para obtener todos los registros de Excel y parsea
+	 * la respuesta JSON a una lista de ExcelDTO.
+	 *
+	 * @param url La URL a la que se realizará la solicitud GET.
+	 * @return Una lista de objetos ExcelDTO.
+	 */
 	public static ArrayList<ExcelDTO> doGetAllExcel(String url) {
 		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
 
@@ -135,6 +189,13 @@ public class ExternalHTTPRequestHandler {
 		return new ArrayList<>(Arrays.asList(excelArray));
 	}
 
+	/**
+	 * Realiza una solicitud GET para obtener todas las películas y parsea la
+	 * respuesta JSON a una lista de MovieDTO.
+	 *
+	 * @param url La URL a la que se realizará la solicitud GET.
+	 * @return Una lista de objetos MovieDTO.
+	 */
 	public static ArrayList<MovieDTO> doGetAllMovies(String url) {
 		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
 
@@ -153,7 +214,5 @@ public class ExternalHTTPRequestHandler {
 
 		return new ArrayList<>(Arrays.asList(movieArray));
 	}
-
-	
 
 }
