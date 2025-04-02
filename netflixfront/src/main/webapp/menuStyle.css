@@ -44,6 +44,62 @@ nav a {
 	text-decoration: none;
 }
 
+
+.dropdown {
+    margin-right: 0; /* Elimina el margen derecho del menú */
+}
+
+.search-container {
+    background-color: transparent !important;
+    display: flex;
+    align-items: stretch; /* Estira los elementos para que tengan la misma altura */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 350px;
+}
+
+.search-input {
+    padding: 8px 15px;
+    border: none;
+    flex: 1;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    color: white;
+    border: 3px solid white !important; /* Corregimos el borde */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 60px;
+    display: flex;
+    align-items: center;
+        border-radius: 10px;
+    
+    justify-content: center;
+    background-color: transparent !important;
+    padding: 0; /* Eliminamos el padding para que no afecte la altura */
+}
+
+.search-button:hover {
+    background-color: white;
+    color:black;
+}
+
+.search-button i {
+    font-size: 18px;
+}
+
+header .dropdown { /* Especificidad aumentada */
+    margin-right: 0;
+}
+
+header .dropdown .btn.dropdown-toggle { /* Estilo específico para el botón del dropdown */
+    margin-right: 0; /* Asegura que no haya margen extra */
+    border-radius: 5px; /* Ajusta el borde del botón si es necesario */
+}
+
 .movie-carousel .ui-carousel-item {
 	display: flex;
 	justify-content: center;
@@ -67,7 +123,7 @@ nav a {
 .banner {
 	background-image: url('backdrop.jpg');
 	background-size: cover;
-	padding: 100px 20px;
+	padding: 300px 20px;
 	text-align: center;
 	color: white;
 }

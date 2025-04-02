@@ -48,7 +48,9 @@
 					ajax="true" />
 			</div>
 		</h:form>
+
 	</div>
+
 	<nav>
 	<div class="container-fluid">
 		<div class="dropdown">
@@ -67,7 +69,8 @@
 					</h:form></li>
 				<li><h:form>
 						<p:commandLink styleClass="dropdown-item"
-							action="#{UserBean.crear}" ajax="false" immediate="true">
+							action="menu.xhtml?faces-redirect=true" ajax="false"
+							immediate="true">
 							<i class="fa-solid fa-download"></i> Inicios de sesión
                             </p:commandLink>
 					</h:form></li>
@@ -89,79 +92,19 @@
 		</div>
 	</div>
 	</nav> </header>
+	<h:form>
+		<h2>#{peliculaT.nombre}</h2>
+		<div></div>
+		<iframe width="100%" height="700" src="#{MovieBean.url}"
+			title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin"
+			allowfullscreen="true"></iframe>
 
-	<h:form></h:form>
-	<main> <section class="banner">
-	<h1>Bienvenido a Netflix</h1>
-	<p>Disfruta de las mejores películas y series.</p>
-	</section> <h:form id="carouselFormTerror">
-		<section class="movies">
-		<h2>Películas Terror</h2>
-		<p:carousel id="movieCarouselTerror"
-			value="#{MovieBean.peliculasTerror}" var="peliculaT" numVisible="6"
-			responsive="true" styleClass="movie-carousel"
-			update="movieCarouselTerror">
-			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty peliculaT.url}">
-					<iframe width="200" height="300" src="#{peliculaT.url}"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen="true"></iframe>
-				</h:panelGroup>
-				<h:panelGroup rendered="#{empty peliculaT.url}">
-					<p:graphicImage value="img/#{peliculaT.imagenUrl}"
-						alt="#{peliculaT.nombre}" />
-				</h:panelGroup>
-				<h:outputText value="#{peliculaT.nombre}"
-					styleClass="nombre-pelicula" />
-			</p:panelGrid>
-		</p:carousel> <p:remoteCommand name="updateCarouselTerror"
-			update="movieCarouselTerror" /> </section>
-	</h:form> <h:form>
-		<section class="movies">
-		<h2>Películas Animacion</h2>
-		<p:carousel value="#{MovieBean.peliculasAnimacion}" var="peliculaA"
-			numVisible="6" responsive="true" styleClass="movie-carousel">
-			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty peliculaA.url}">
-					<iframe width="200" height="300" src="#{peliculaA.url}"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen="true"></iframe>
-				</h:panelGroup>
-				<h:outputText value="#{peliculaA.nombre}"
-					styleClass="nombre-pelicula" />
-			</p:panelGrid>
-		</p:carousel> </section>
-	</h:form> <h:form id="carouselFormRomance">
-		<section class="movies">
-		<h2>Películas Romance</h2>
-		<p:carousel id="movieCarouselRomance"
-			value="#{MovieBean.peliculasRomance}" var="peliculaR" numVisible="6"
-			responsive="true" styleClass="movie-carousel"
-			update="movieCarouselRomance">
-			<p:panelGrid columns="1" style="width:100%;text-align:center;">
-				<h:panelGroup rendered="#{not empty peliculaR.url}">
-					<iframe width="200" height="300" src="#{peliculaR.url}"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen="true"></iframe>
-				</h:panelGroup>
-				<h:panelGroup rendered="#{empty peliculaR.url}">
-					<p:graphicImage value="img/#{peliculaR.imagenUrl}"
-						alt="#{peliculaR.nombre}" />
-				</h:panelGroup>
-				<h:outputText value="#{peliculaR.nombre}"
-					styleClass="nombre-pelicula" />
-			</p:panelGrid>
-		</p:carousel> <p:remoteCommand name="updateCarouselRomance"
-			update="movieCarouselRomance" /> </section>
-	</h:form> </main>
+	</h:form>
 	<footer>
 	<p>© 2023 MiNetflix. Todos los derechos reservados.</p>
+
 	</footer>
 
 	<label for="theme" class="theme"> <span

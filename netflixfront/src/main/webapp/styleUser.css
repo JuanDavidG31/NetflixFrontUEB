@@ -1,76 +1,79 @@
 @charset "UTF-8";
 
 body {
-    background-color: black;
-    color: white; /* Color de texto para modo oscuro */
+	background-image: url('NetflixBackground.jpg') ;
+	background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-attachment: fixed;
 }
 
 body.light-mode {
-    background-color: white;
-    color: black; /* Color de texto para modo claro */
+	background-color: white;
+	color: black; /* Color de texto para modo claro */
 }
 
 a {
-    color: white !important; /* Color de enlaces para modo oscuro */
+	color: white !important; /* Color de enlaces para modo oscuro */
 }
 
 body.light-mode a {
-    color: black !important; /* Color de enlaces para modo claro */
+	color: black !important; /* Color de enlaces para modo claro */
 }
 
 #formCreate {
-    margin: 90px auto;
-    width: 400px;
-    height: auto;
-    border-radius: 21px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	margin: 90px auto;
+	width: 400px;
+	height: auto;
+	border-radius: 21px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .logo {
-    position: absolute;
-    top: 0px;
-    left: 20px;
-    width: 9%;
-    height: auto;
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	width: 9%;
+	height: auto;
 }
 
 .card {
-    width: 100%;
-    background: #E50914;
-    padding: 30px;
-    border-radius: 10px;
-    color: white; /* Color de texto para modo oscuro */
+	width: 100%;
+	background: #E50914;
+	padding: 30px;
+	border-radius: 10px;
+	color: white; /* Color de texto para modo oscuro */
 }
 
 body.light-mode .card {
-    color: black; /* Color de texto para modo claro */
+	color: black; /* Color de texto para modo claro */
 }
 
 .titulo {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
+	color: white;
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 20px;
 }
 
 body.light-mode .titulo {
-    color: black;
+	color: black;
 }
 
 .field {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
 }
 
 .form-group h:outputLabel {
-    margin-bottom: 5px;
-    font-weight: bold;
+	margin-bottom: 5px;
+	font-weight: bold;
 }

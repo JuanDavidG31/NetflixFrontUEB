@@ -1,14 +1,14 @@
 package co.edu.unbosque.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 import co.edu.unbosque.model.MovieDTO;
 import co.edu.unbosque.persistence.MovieDAO;
-import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
-import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
 @Named("MovieBean")
@@ -24,11 +24,16 @@ public class MovieBean implements Serializable {
 	private final String ANIMACION = "Animación";
 	private final String ROMANCE = "Romance";
 	private MovieDAO mDao;
+	private String buscar;
+	private String url;
+	private String nombre;
 
 	public MovieBean() {
 
 		mDao = new MovieDAO();
 		recargarPeliculas();
+		
+		
 
 	}
 
@@ -49,6 +54,36 @@ public class MovieBean implements Serializable {
 			} else if (m.getGenero().equals(ROMANCE)) {
 				peliculasRomance.add(new MovieDTO(m.getUrl(), m.getNombre(), m.getGenero()));
 			}
+		}
+
+	}
+
+	public void search() {
+
+		peliculas = new ArrayList<>();
+		peliculas = mDao.buscarTodo();
+		boolean existente = true;
+
+		for (MovieDTO p : peliculas) {
+			if (buscar.toLowerCase().equals(p.getNombre().toLowerCase())) {
+				this.url = p.getUrl();
+				this.nombre = p.getNombre();
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("movie.xhtml");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				existente = false;
+				this.buscar = null;
+				break;
+			}
+		}
+
+		if (existente) {
+			this.buscar = null;
+
+			FacesContext.getCurrentInstance().addMessage("messages",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La pelicula no se encuentra disponible."));
 		}
 
 	}
@@ -107,6 +142,30 @@ public class MovieBean implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getBuscar() {
+		return buscar;
+	}
+
+	public void setBuscar(String buscar) {
+		this.buscar = buscar;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }
