@@ -48,9 +48,7 @@
 					ajax="true" />
 			</div>
 		</h:form>
-
 	</div>
-
 	<nav>
 	<div class="container-fluid">
 		<div class="dropdown">
@@ -69,8 +67,7 @@
 					</h:form></li>
 				<li><h:form>
 						<p:commandLink styleClass="dropdown-item"
-							action="menu.xhtml?faces-redirect=true" ajax="false"
-							immediate="true">
+							action="#{UserBean.crear}" ajax="false" immediate="true">
 							<i class="fa-solid fa-download"></i> Inicios de sesión
                             </p:commandLink>
 					</h:form></li>
@@ -92,19 +89,33 @@
 		</div>
 	</div>
 	</nav> </header>
-	<h:form>
-		<h2>#{peliculaT.nombre}</h2>
-		<div></div>
-		<iframe width="100%" height="700" src="#{MovieBean.url}"
-			title="YouTube video player" frameborder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			referrerpolicy="strict-origin-when-cross-origin"
-			allowfullscreen="true"></iframe>
 
+	<h:form></h:form>
+	
+	<h:form id="carouselFormPeliculas">
+		<section class="movies">
+		<h2>Películas Destacadas</h2>
+		<p:dataGrid id="movieGridPeliculas" value="#{MovieBean.peliculas}"
+			var="pelicula" columns="6" layout="grid" styleClass="movie-grid">
+
+			<p:panelGrid columns="1" style="width:100%;text-align:center;">
+				<h:panelGroup rendered="#{not empty pelicula.url}">
+					<iframe width="200" height="300" src="#{pelicula.url}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen="true"></iframe>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{empty pelicula.url}">
+				</h:panelGroup>
+				<h:outputText value="#{pelicula.nombre}"
+					styleClass="nombre-pelicula" />
+			</p:panelGrid>
+		</p:dataGrid> <p:remoteCommand name="updateGridPeliculas"
+			update="movieGridPeliculas" /> </section>
 	</h:form>
 	<footer>
 	<p>© 2025 Netflix. Todos los derechos reservados.</p>
-
 	</footer>
 
 	<label for="theme" class="theme"> <span

@@ -32,66 +32,68 @@
 
 	<div id="formCreate" class="animate__animated animate__bounceInLeft">
 		<div class="card">
-			<h:form id="formNewuser" >
+			<h:form id="formNewuser">
 				<center>
 					<h2 class="titulo">Crear cuenta</h2>
 				</center>
 
-		  <h:messages globalOnly="false" showSummary="false" showDetail="true" styleClass="alert alert-danger" />
-        
-        <div class="field" style="margin-bottom: 20px;">
-            <span class="ui-float-label">
-                <p:inputText id="nombre" value="#{UserBean.name}" required="true" style="width: 100%;"
-                             validatorMessage="El nombre debe tener entre 3 y 20 caracteres y solo puede contener letras.">
-                    <f:validateLength minimum="3" maximum="20" />
-                    <f:validateRegex pattern="^[a-zA-Z0-9_]+$" />
-                </p:inputText>
-                <p:outputLabel for="nombre" value="Nombre" />
-            </span>
-        </div>
+				<h:messages globalOnly="false" showSummary="false" showDetail="true"
+					styleClass="alert alert-danger" />
 
-        <div class="field" style="margin-bottom: 20px;">
-            <span class="ui-float-label">
-                <p:inputText id="usuario" value="#{UserBean.user}" required="true" style="width: 100%;"
-                             validatorMessage="El usuario debe tener entre 3 y 20 caracteres y solo puede contener letras, números y guiones bajos.">
-                    <f:validateLength minimum="3" maximum="20" />
-                    <f:validateRegex pattern="^[a-zA-Z0-9_]+$" />
-                </p:inputText>
-                <p:outputLabel for="usuario" value="Usuario" />
-            </span>
-        </div>
+				<div class="field" style="margin-bottom: 20px;">
+					<span class="ui-float-label"> <p:inputText id="nombre"
+							value="#{UserBean.name}" required="true" style="width: 100%;"
+							validatorMessage="El nombre debe tener entre 3 y 20 caracteres y solo puede contener letras.">
+							<f:validateLength minimum="3" maximum="20" />
+							<f:validateRegex pattern="^[a-zA-Z0-9_]+$" />
+						</p:inputText> <p:outputLabel for="nombre" value="Nombre" />
+					</span>
+				</div>
 
-        <div class="field" style="margin-bottom: 20px;">
-            <span class="ui-float-label">
-                <p:inputText id="correo" value="#{UserBean.email}" required="true" style="width: 100%;"
-                             validatorMessage="Ingresa un correo válido, por ejemplo: usuario@email.com">
-                    <f:validateRegex pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" />
-                </p:inputText>
-                <p:outputLabel for="correo" value="Correo:" />
-            </span>
-        </div>
+				<div class="field" style="margin-bottom: 20px;">
+					<span class="ui-float-label"> <p:inputText id="usuario"
+							value="#{UserBean.user}" required="true" style="width: 100%;"
+							validatorMessage="El usuario debe tener entre 3 y 20 caracteres y solo puede contener letras, números y guiones bajos.">
+							<f:validateLength minimum="3" maximum="20" />
+							<f:validateRegex pattern="^[a-zA-Z0-9_]+$" />
+						</p:inputText> <p:outputLabel for="usuario" value="Usuario" />
+					</span>
+				</div>
 
-        <div class="field" style="margin-bottom: 20px;">
-            <span class="ui-float-label">
-                <p:password id="contrasena" value="#{UserBean.password}" required="true" style="width: 100%;"
-                            validatorMessage="La contraseña debe tener al menos 6 caracteres, incluir un número y un símbolo especial.">
-                    <f:validateLength minimum="6" maximum="20" />
-                    <f:validateRegex pattern="^(?=.*[0-9])(?=.*[!@#$%^&amp;*])[A-Za-z0-9!@#$%^&amp;*]{6,}$" />
-                </p:password>
-                <p:outputLabel for="contrasena" value="Contraseña:" />
-            </span>
-        </div>
+				<div class="field" style="margin-bottom: 20px;">
+					<span class="ui-float-label"> <p:inputText id="correo"
+							value="#{UserBean.email}" required="true" style="width: 100%;"
+							validatorMessage="Ingresa un correo válido, por ejemplo: usuario@email.com">
+							<f:validateRegex
+								pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" />
+						</p:inputText> <p:outputLabel for="correo" value="Correo:" />
+					</span>
+				</div>
 
-        <div class="field" style="margin-bottom: 20px;">
-            <span class="ui-float-label">
-                <p:password id="contrasenaVerificar" value="#{UserBean.passwordCheck}" required="true" style="width: 100%;" />
-                <p:outputLabel for="contrasenaVerificar" value="Verificar Contraseña:" />
-            </span>
-        </div>
+				<div class="field" style="margin-bottom: 20px;">
+					<span class="ui-float-label"> <p:password id="contrasena"
+							value="#{UserBean.password}" required="true" style="width: 100%;"
+							validatorMessage="La contraseña debe tener al menos 6 caracteres, incluir un número y un símbolo especial.">
+							<f:validateLength minimum="6" maximum="20" />
+							<f:validateRegex
+								pattern="^(?=.*[0-9])(?=.*[!@#$%^&amp;*])[A-Za-z0-9!@#$%^&amp;*]{6,}$" />
+						</p:password> <p:outputLabel for="contrasena" value="Contraseña:" />
+					</span>
+				</div>
 
-        <div class="field" style="margin-bottom: 20px;">
-            <p:commandButton value="Crear cuenta" action="#{UserBean.nuevoUsuario}" update="@form" style="width: 100%;"/>
-        </div>
+				<div class="field" style="margin-bottom: 20px;">
+					<span class="ui-float-label"> <p:password
+							id="contrasenaVerificar" value="#{UserBean.passwordCheck}"
+							required="true" style="width: 100%;" /> <p:outputLabel
+							for="contrasenaVerificar" value="Verificar Contraseña:" />
+					</span>
+				</div>
+
+				<div class="field" style="margin-bottom: 20px;">
+					<p:commandButton value="Crear cuenta"
+						action="#{UserBean.nuevoUsuario}" styleClass="custom-buttonin"
+						update="@form" style="width: 100%;" />
+				</div>
 
 
 				<!-- Enlace corregido -->

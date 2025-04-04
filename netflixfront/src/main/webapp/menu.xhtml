@@ -23,7 +23,7 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<script src="https://kit.fontawesome.com/e5507d7bda.js"></script>
 	<link rel="icon" type="image/png" href="netflix_logo_icon_170919.ico" />
-	<title>Netiflix</title>
+	<title>Netflix</title>
 </h:head>
 
 <h:body>
@@ -60,7 +60,7 @@
 				aria-labelledby="menuOpciones">
 				<li><h:form>
 						<p:commandLink styleClass="dropdown-item"
-							action="menu.xhtml?faces-redirect=true" ajax="false"
+							action="movieList.xhtml?faces-redirect=true" ajax="false"
 							immediate="true">
 							<i class="fa-solid fa-film"></i> Peliculas
                             </p:commandLink>
@@ -92,9 +92,23 @@
 
 	<h:form></h:form>
 	<main> <section class="banner">
-	<h1>Bienvenido a Netflix</h1>
-	<p>Disfruta de las mejores películas y series.</p>
-	</section> <h:form id="carouselFormTerror">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="backdrop.png" class="d-block w-100" alt="Slide 1"/>
+            </div>
+            <div class="carousel-item">
+                <img src="6.png" class="d-block w-100" alt="Slide 2"/>
+            </div>
+            <div class="carousel-item">
+                <img src="5.png" class="d-block w-100" alt="Slide 3"/>
+            </div>
+            
+        </div>
+    </div>
+    <h1>Bienvenido a Netflix</h1>
+    <p>Disfruta de las mejores películas </p>
+</section> <h:form id="carouselFormTerror">
 		<section class="movies">
 		<h2>Películas Terror</h2>
 		<p:carousel id="movieCarouselTerror"
@@ -120,7 +134,7 @@
 			update="movieCarouselTerror" /> </section>
 	</h:form> <h:form>
 		<section class="movies">
-		<h2>Películas Animacion</h2>
+		<h2>Películas Animación</h2>
 		<p:carousel value="#{MovieBean.peliculasAnimacion}" var="peliculaA"
 			numVisible="6" responsive="true" styleClass="movie-carousel">
 			<p:panelGrid columns="1" style="width:100%;text-align:center;">
@@ -161,7 +175,7 @@
 			update="movieCarouselRomance" /> </section>
 	</h:form> </main>
 	<footer>
-	<p>© 2023 MiNetflix. Todos los derechos reservados.</p>
+	<p>© 2025 Netflix. Todos los derechos reservados.</p>
 	</footer>
 
 	<label for="theme" class="theme"> <span

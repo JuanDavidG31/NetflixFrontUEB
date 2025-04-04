@@ -18,3 +18,4 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.checked = true; // Asegura que el checkbox esté marcado
     }
 });
+
