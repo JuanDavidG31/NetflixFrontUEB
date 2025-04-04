@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.MovieDTO;
-import co.edu.unbosque.persistence.MovieDAO;
+import co.edu.unbosque.model.persistence.MovieDAO;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;

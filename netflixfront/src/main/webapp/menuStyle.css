@@ -152,7 +152,6 @@ header .dropdown .btn.dropdown-toggle {
 }
 
 .banner {
-    background-image: url('backdrop.png');
     background-size: cover;
     padding: 250px 0px;
     text-align: center;

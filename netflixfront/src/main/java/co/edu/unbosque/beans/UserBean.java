@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.ExcelDTO;
 import co.edu.unbosque.model.UserDTO;
-import co.edu.unbosque.persistence.ExcelDAO;
-import co.edu.unbosque.persistence.UserDAO;
+import co.edu.unbosque.model.persistence.ExcelDAO;
+import co.edu.unbosque.model.persistence.UserDAO;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 

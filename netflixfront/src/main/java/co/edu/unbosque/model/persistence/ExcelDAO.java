@@ -1,4 +1,4 @@
-package co.edu.unbosque.persistence;
+package co.edu.unbosque.model.persistence;
 
 import java.awt.Desktop;
 import java.io.File;
