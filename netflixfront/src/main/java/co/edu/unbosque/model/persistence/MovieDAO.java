@@ -79,7 +79,7 @@ public class MovieDAO implements CRUDOperation<MovieDTO, MovieDTO> {
 	@Override
 	public ArrayList<MovieDTO> buscarTodo() {
 
-		return ExternalHTTPRequestHandler.doGetAllMovies("http://localhost:8082/movie/showAll");
+		return ExternalHTTPRequestHandler.doGetAllMovies("http://192.168.1.228:8081/netflixback-0.0.2-SNAPSHOT/movie/showAll");
 	}
 
 	/**

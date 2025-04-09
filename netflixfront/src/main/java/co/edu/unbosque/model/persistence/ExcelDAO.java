@@ -88,7 +88,7 @@ public class ExcelDAO implements CRUDOperation<ExcelDTO, ExcelDTO> {
 	@Override
 	public String crear(ExcelDTO nuevoDato) {
 
-		return ExternalHTTPRequestHandler.doPost("http://localhost:8082/excel/crearjson",
+		return ExternalHTTPRequestHandler.doPost("http://192.168.1.228:8081/netflixback-0.0.2-SNAPSHOT/excel/crearjson",
 				new GsonBuilder().create().toJson(nuevoDato));
 	}
 

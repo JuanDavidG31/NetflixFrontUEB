@@ -36,7 +36,7 @@ public class UserDAO implements CRUDOperation<UserDTO, UserDTO> {
 	@Override
 	public String crear(UserDTO nuevoDato) {
 
-		return ExternalHTTPRequestHandler.doPost("http://localhost:8082/user/crearjson",
+		return ExternalHTTPRequestHandler.doPost("http://192.168.1.228:8081/netflixback-0.0.2-SNAPSHOT/user/crearjson",
 				new GsonBuilder().create().toJson(nuevoDato));
 
 	}
@@ -84,7 +84,8 @@ public class UserDAO implements CRUDOperation<UserDTO, UserDTO> {
 	 * @return La respuesta de la API HTTP como una cadena.
 	 */
 	public String actualizar2(UserDTO nuevoDato) {
-		return ExternalHTTPRequestHandler.doPut("http://localhost:8082/user/actualizarjson",
+		return ExternalHTTPRequestHandler.doPut(
+				"http://192.168.1.228:8081/netflixback-0.0.1-SNAPSHOT/user/actualizarjson",
 				new GsonBuilder().create().toJson(nuevoDato));
 	}
 
@@ -132,7 +133,7 @@ public class UserDAO implements CRUDOperation<UserDTO, UserDTO> {
 	 */
 	public ArrayList<UserDTO> getUserList() {
 		userList = new ArrayList<>();
-		userList = ExternalHTTPRequestHandler.doGetAllUsuarios("http://localhost:8082/user/showAll");
+		userList = ExternalHTTPRequestHandler.doGetAllUsuarios("http://192.168.1.228:8081/netflixback-0.0.2-SNAPSHOT/user/showAll");
 		return userList;
 	}
 
