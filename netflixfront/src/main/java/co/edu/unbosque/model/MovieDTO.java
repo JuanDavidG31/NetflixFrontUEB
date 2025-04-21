@@ -3,142 +3,138 @@ package co.edu.unbosque.model;
 import java.io.Serializable;
 
 /**
- * Data Transfer Object (DTO) para representar datos de películas. Esta clase se
- * utiliza para transferir datos de películas entre diferentes capas de la
- * aplicación.
+ * Data Transfer Object (DTO) para representar datos de películas. Esta clase se utiliza para
+ * transferir datos de películas entre diferentes capas de la aplicación.
  */
 public class MovieDTO implements Serializable {
-	/**
-	 * UID de versión serial para la serialización.
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Identificador único de la película.
-	 */
-	private Integer id;
-	/**
-	 * URL de la imagen o video de la película.
-	 */
-	private String url;
-	/**
-	 * Nombre de la película.
-	 */
-	private String nombre;
-	/**
-	 * Género de la película.
-	 */
-	private String genero;
+  /** UID de versión serial para la serialización. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructor predeterminado sin argumentos.
-	 */
-	public MovieDTO() {
-	}
+  /** Identificador único de la película. */
+  private Integer id;
 
-	/**
-	 * Constructor con argumentos para inicializar los campos de URL, nombre y
-	 * género de la película.
-	 * 
-	 * @param url    URL de la película.
-	 * @param nombre Nombre de la película.
-	 * @param genero Género de la película.
-	 */
-	public MovieDTO(String url, String nombre, String genero) {
-		super();
-		this.url = url;
-		this.nombre = nombre;
-		this.genero = genero;
-	}
+  /** URL de la imagen o video de la película. */
+  private String url;
 
-	/**
-	 * Obtiene el identificador de la película.
-	 * 
-	 * @return El identificador de la película.
-	 */
-	public Integer getId() {
-		return id;
-	}
+  /** Nombre de la película. */
+  private String nombre;
 
-	/**
-	 * Establece el identificador de la película.
-	 * 
-	 * @param id El identificador de la película a establecer.
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  /** Género de la película. */
+  private String genero;
 
-	/**
-	 * Obtiene la URL de la película.
-	 * 
-	 * @return La URL de la película.
-	 */
-	public String getUrl() {
-		return url;
-	}
+  /** Constructor predeterminado sin argumentos. */
+  public MovieDTO() {}
 
-	/**
-	 * Establece la URL de la película.
-	 * 
-	 * @param url La URL de la película a establecer.
-	 */
-	public void setUrl(String url) {
-		this.url = url;
-	}
+  /**
+   * Constructor con argumentos para inicializar los campos de URL, nombre y género de la película.
+   *
+   * @param url URL de la película.
+   * @param nombre Nombre de la película.
+   * @param genero Género de la película.
+   */
+  public MovieDTO(String url, String nombre, String genero) {
+    super();
+    this.url = url;
+    this.nombre = nombre;
+    this.genero = genero;
+  }
 
-	/**
-	 * Obtiene el nombre de la película.
-	 * 
-	 * @return El nombre de la película.
-	 */
-	public String getNombre() {
-		return nombre;
-	}
+  /**
+   * Obtiene el identificador de la película.
+   *
+   * @return El identificador de la película.
+   */
+  public Integer getId() {
+    return id;
+  }
 
-	/**
-	 * Establece el nombre de la película.
-	 * 
-	 * @param nombre El nombre de la película a establecer.
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+  /**
+   * Establece el identificador de la película.
+   *
+   * @param id El identificador de la película a establecer.
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	/**
-	 * Obtiene el género de la película.
-	 * 
-	 * @return El género de la película.
-	 */
-	public String getGenero() {
-		return genero;
-	}
+  /**
+   * Obtiene la URL de la película.
+   *
+   * @return La URL de la película.
+   */
+  public String getUrl() {
+    return url;
+  }
 
-	/**
-	 * Establece el género de la película.
-	 * 
-	 * @param genero El género de la película a establecer.
-	 */
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
+  /**
+   * Establece la URL de la película.
+   *
+   * @param url La URL de la película a establecer.
+   */
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-	/**
-	 * Obtiene el UID de versión serial.
-	 * 
-	 * @return El UID de versión serial.
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+  /**
+   * Obtiene el nombre de la película.
+   *
+   * @return El nombre de la película.
+   */
+  public String getNombre() {
+    return nombre;
+  }
 
-	/**
-	 * Devuelve una representación en cadena del objeto MovieDTO.
-	 * 
-	 * @return Una cadena que representa el objeto MovieDTO.
-	 */
-	@Override
-	public String toString() {
-		return "MovieDTO [id=" + id + ", url=" + url + ", nombre=" + nombre + ", genero=" + genero + "]";
-	}
+  /**
+   * Establece el nombre de la película.
+   *
+   * @param nombre El nombre de la película a establecer.
+   */
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
+  /**
+   * Obtiene el género de la película.
+   *
+   * @return El género de la película.
+   */
+  public String getGenero() {
+    return genero;
+  }
+
+  /**
+   * Establece el género de la película.
+   *
+   * @param genero El género de la película a establecer.
+   */
+  public void setGenero(String genero) {
+    this.genero = genero;
+  }
+
+  /**
+   * Obtiene el UID de versión serial.
+   *
+   * @return El UID de versión serial.
+   */
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
+
+  /**
+   * Devuelve una representación en cadena del objeto MovieDTO.
+   *
+   * @return Una cadena que representa el objeto MovieDTO.
+   */
+  @Override
+  public String toString() {
+    return "MovieDTO [id="
+        + id
+        + ", url="
+        + url
+        + ", nombre="
+        + nombre
+        + ", genero="
+        + genero
+        + "]";
+  }
 }
